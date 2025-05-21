@@ -1,0 +1,12 @@
+.AboutLink {
+  font-family: "Oswald";
+  font-size: 1.6rem;
+  background-color: transparent;
+  border-radius: 10px;
+  border-style: solid;
+}
+
+.AboutLink:hover{
+  background-color: rgb(70, 216, 106);
+  transition: 0.5s;
+}

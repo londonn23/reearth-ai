@@ -1,0 +1,96 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* overall header bar */
+header {
+  font-family: "Oswald";
+  display: flex; /* flex container */
+  justify-content: space-between; /* push left & right apart */
+  align-items: center; /* vertical centering */
+  background-color: #2da587; /* match your green bar */
+  padding: 0.5rem 1rem;
+}
+
+/* left side: logo + stacked site name */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* space between logo & title */
+}
+
+.logo {
+  height: 60px; /* fixed logo height */
+  width: auto;
+}
+
+.site-title h1 {
+  margin: 0; /* remove default spacing */
+  font-size: 1.8rem; /* match your design */
+  line-height: 1;
+  color: #ffffff;
+}
+
+.site-title h1:nth-of-type(1){
+  color: #244b38;
+}
+
+/* right side: slogan + About link */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* space between slogan & link */
+}
+
+.header-left h2 {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #ffffff;
+}
+
+.site-title {
+  display: flex;
+  align-items: baseline;
+}
+
+.below-header{
+  margin-top: 20px;
+}
+
+.item-container {
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+  background-color: rgb(218, 217, 217);
+  height: 115px;
+  width: 100%;
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+  border-style: solid;
+  border-color: rgb(94, 93, 93);
+  border-width: 2.8px;
+  border-left: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.button-right{
+  transform: scaleX(-1);
+}
+
+.item-list{
+  display: flex;
+  width: 72%;
+  overflow: hidden;
+}
+
+.right-side{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
