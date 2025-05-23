@@ -3,6 +3,8 @@ import { useRef } from "react";
 import { AboutLink } from "./components/AboutLink";
 import { SideText } from "./components/SideText";
 import { ItemCard, CarouselButton, Randomize } from "./components/Carousel";
+import { GenerateButton } from "./components/GenerateButton";
+import { SelectedItems, AiTextBar } from "./components/SelectedItems";
 
 function App() {
   const scrollRef = useRef(null);
@@ -17,36 +19,120 @@ function App() {
   };
 
   const items = [
-    { name: "aluminium can",      location: "/items/aluminium can.jpg",      description: "aluminium can" },
-    { name: "aluminium foil",     location: "/items/aluminium foil.jpg",     description: "aluminium foil" },
-    { name: "books",              location: "/items/books.jpg",              description: "books" },
-    { name: "bubble wrap",        location: "/items/bubble wrap.jpg",        description: "bubble wrap" },
-    { name: "cardboard",          location: "/items/cardboard.jpg",          description: "cardboard" },
-    { name: "carpet",             location: "/items/carpet.jpg",             description: "carpet" },
-    { name: "cloth",              location: "/items/cloth.jpg",              description: "cloth" },
-    { name: "clothes",            location: "/items/clothes.jpg",            description: "clothes" },
-    { name: "egg carton",         location: "/items/egg carton.jpg",         description: "egg carton" },
-    { name: "food waste",         location: "/items/food waste.jpg",         description: "food waste" },
-    { name: "glass bottle",       location: "/items/glass bottle.jpg",       description: "glass bottle" },
-    { name: "metal clip",         location: "/items/metal clip.jpg",         description: "metal clip" },
-    { name: "newspaper",          location: "/items/newspaper.jpg",          description: "newspaper" },
-    { name: "paper bag",          location: "/items/paper bag.jpg",          description: "paper bag" },
-    { name: "paper clip",         location: "/items/paper clip.jpg",         description: "paper clip" },
-    { name: "paper",              location: "/items/paper.jpg",              description: "paper" },
-    { name: "pencil",             location: "/items/pencil.jpg",             description: "pencil" },
-    { name: "plant pot",          location: "/items/plant pot.jpg",          description: "plant pot" },
-    { name: "plastic bag",        location: "/items/plastic bag.jpg",        description: "plastic bag" },
-    { name: "plastic bottle",     location: "/items/plastic bottle.jpg",     description: "plastic bottle" },
-    { name: "plastic bucket",     location: "/items/plastic bucket.jpg",     description: "plastic bucket" },
-    { name: "plastic container",  location: "/items/plastic container.jpg",  description: "plastic container" },
-    { name: "rubber band",        location: "/items/rubber band.jpg",        description: "rubber band" },
-    { name: "school bag",         location: "/items/school bag.jpg",         description: "school bag" },
-    { name: "shoes",              location: "/items/shoes.jpg",              description: "shoes" },
-    { name: "tin can",            location: "/items/tin can.jpg",            description: "tin can" },
-    { name: "toothpaste tube",    location: "/items/toothpaste tube.jpg",    description: "toothpaste tube" },
-    { name: "tumbler",            location: "/items/tumbler.jpg",            description: "tumbler" },
-    { name: "Used Pet Iitter sand", location: "/items/Used Pet Iitter sand.jpg", description: "Used Pet Iitter sand" },
-    { name: "wood board",         location: "/items/wood board.jpg",         description: "wood board" },
+    {
+      name: "aluminium can",
+      location: "/items/aluminium can.jpg",
+      description: "aluminium can",
+    },
+    {
+      name: "aluminium foil",
+      location: "/items/aluminium foil.jpg",
+      description: "aluminium foil",
+    },
+    { name: "books", location: "/items/books.jpg", description: "books" },
+    {
+      name: "bubble wrap",
+      location: "/items/bubble wrap.jpg",
+      description: "bubble wrap",
+    },
+    {
+      name: "cardboard",
+      location: "/items/cardboard.jpg",
+      description: "cardboard",
+    },
+    { name: "carpet", location: "/items/carpet.jpg", description: "carpet" },
+    { name: "cloth", location: "/items/cloth.jpg", description: "cloth" },
+    { name: "clothes", location: "/items/clothes.jpg", description: "clothes" },
+    {
+      name: "egg carton",
+      location: "/items/egg carton.jpg",
+      description: "egg carton",
+    },
+    {
+      name: "food waste",
+      location: "/items/food waste.jpg",
+      description: "food waste",
+    },
+    {
+      name: "glass bottle",
+      location: "/items/glass bottle.jpg",
+      description: "glass bottle",
+    },
+    {
+      name: "metal clip",
+      location: "/items/metal clip.jpg",
+      description: "metal clip",
+    },
+    {
+      name: "newspaper",
+      location: "/items/newspaper.jpg",
+      description: "newspaper",
+    },
+    {
+      name: "paper bag",
+      location: "/items/paper bag.jpg",
+      description: "paper bag",
+    },
+    {
+      name: "paper clip",
+      location: "/items/paper clip.jpg",
+      description: "paper clip",
+    },
+    { name: "paper", location: "/items/paper.jpg", description: "paper" },
+    { name: "pencil", location: "/items/pencil.jpg", description: "pencil" },
+    {
+      name: "plant pot",
+      location: "/items/plant pot.jpg",
+      description: "plant pot",
+    },
+    {
+      name: "plastic bag",
+      location: "/items/plastic bag.jpg",
+      description: "plastic bag",
+    },
+    {
+      name: "plastic bottle",
+      location: "/items/plastic bottle.jpg",
+      description: "plastic bottle",
+    },
+    {
+      name: "plastic bucket",
+      location: "/items/plastic bucket.jpg",
+      description: "plastic bucket",
+    },
+    {
+      name: "plastic container",
+      location: "/items/plastic container.jpg",
+      description: "plastic container",
+    },
+    {
+      name: "rubber band",
+      location: "/items/rubber band.jpg",
+      description: "rubber band",
+    },
+    {
+      name: "school bag",
+      location: "/items/school bag.jpg",
+      description: "school bag",
+    },
+    { name: "shoes", location: "/items/shoes.jpg", description: "shoes" },
+    { name: "tin can", location: "/items/tin can.jpg", description: "tin can" },
+    {
+      name: "toothpaste tube",
+      location: "/items/toothpaste tube.jpg",
+      description: "toothpaste tube",
+    },
+    { name: "tumbler", location: "/items/tumbler.jpg", description: "tumbler" },
+    {
+      name: "Used Pet Iitter sand",
+      location: "/items/Used Pet Iitter sand.jpg",
+      description: "Used Pet Iitter sand",
+    },
+    {
+      name: "wood board",
+      location: "/items/wood board.jpg",
+      description: "wood board",
+    },
   ];
 
   return (
@@ -88,12 +174,22 @@ function App() {
         </li>
         {/* right arrow */}
         <div className="button-right">
-        <CarouselButton clickAction={() => scroll("right")}/>
+          <CarouselButton clickAction={() => scroll("right")} />
         </div>
 
         {/* your original Randomize */}
         <Randomize />
       </ul>
+      <div className="other-sidetext">
+        <SideText text={"what you can do:"}></SideText>
+      </div>
+      <div className="ai-container">
+        <div className="left-container">
+        <GenerateButton></GenerateButton>
+        <SelectedItems></SelectedItems>
+        </div>
+        <AiTextBar></AiTextBar>
+      </div>
     </>
   );
 }

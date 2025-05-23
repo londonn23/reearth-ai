@@ -17,6 +17,7 @@
   margin: 5px;
   background-color: transparent;
   align-items: center;
+  cursor: pointer;
 }
 
 .item-card button::after {
@@ -39,6 +40,8 @@
 
 .item-card{
   position: relative;
+  
+
 }
 
 .item-card button.selected{
@@ -47,9 +50,9 @@
   height: 100px;
   width: auto;
   border-style: solid;
-  border-color: rgb(70, 216, 106); /* only change the color, never the width */
+  border-color: rgb(49, 238, 96); /* only change the color, never the width */
   border-radius: 7px;
-  border-width: 5px;
+  border-width: 3.6px;
   padding: 0;
   margin: 5px;
   background-color: transparent;
@@ -89,6 +92,7 @@
   margin-right: 10px;
   margin-left: 10px;
   z-index: 5;
+  cursor: pointer;
 }
 
 .arrow button:hover {
@@ -104,10 +108,13 @@
   border-radius: 10px;
   border-style: solid;
   font-size: 2.3em;
+  cursor: pointer;
 }
 
 .randomize {
   padding-left: 20px;
+  cursor: pointer;
+
 }
 
 .randomize button:hover {

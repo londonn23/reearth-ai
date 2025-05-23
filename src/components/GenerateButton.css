@@ -1,0 +1,15 @@
+.generate-button {
+  font-family: "Oswald";
+  background-color: transparent;
+  border-radius: 25px;
+  font-size: 1.9rem;
+  margin-top: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  cursor: pointer;
+}
+
+.generate-button:hover {
+  background-color: rgb(77, 245, 119);
+  transition: 0.5s;
+}

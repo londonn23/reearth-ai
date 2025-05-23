@@ -1,15 +1,29 @@
 import "./Carousel.css";
 import { useState } from "react";
 
-export function ItemCard({ itemsource, name, desc}) {
+export function ItemCard({ itemsource, name, desc }) {
+  const [SelectedItems, setSelectedItems] = useState([]);
+  const [selected, setSelected] = useState(false);
 
-  const [selected,setSelected] = useState(false);
+  const addItem = (newItem) => {
+    setSelectedItems((prevItems) => [...prevItems, newItem]);
+  };
+
+  const removeItem = (itemToRemove) => {
+    setSelectedItems((prevItems) =>
+      prevItems.filter((item) => item !== itemToRemove)
+    );
+  };
+
+  const toggleSelected = () => {
+    setSelected((prev) => !prev);
+    selected ? addItem(name) : removeItem(name);
+  };
 
   return (
     <li className="item-card">
-      <button onClick={() => setSelected((prev) => !prev)} className= {selected ? "selected" : ""}>
-        <img src={itemsource} alt={name}>
-        </img>
+      <button onClick={toggleSelected} className={selected ? "selected" : ""}>
+        <img src={itemsource} alt={name}></img>
         {desc}
         <div className="overlay">{name}</div>
       </button>
