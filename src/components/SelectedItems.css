@@ -1,11 +1,12 @@
 .selected-container {
+  font-family: "Rubik";
   background-color: transparent;
   border-style: solid;
   border-color: rgb(94, 93, 93);
   border-width: 2.8px;
   border-radius: 10px;
   width: 10em;
-  max-height: 3em;
+  height: 3em;
   text-align: left;
   overflow: scroll;
   overflow-x: hidden;

@@ -1,28 +1,14 @@
 import "./SelectedItems.css";
 
-export function SelectedItems() {
+export function SelectedItems({ selectedItems }) {
   return (
     <>
       <h1 className="selected-text">Selected Items:</h1>
       <ul className="selected-container">
-        <li>placeholder</li>
-        <li>placeholder</li>
-        <li>placeholder</li>
-        <li>placeholder</li>
-        <li>placeholder</li>
-        <li>placeholder</li>
-        <li>placeholder</li>
-        <li>placeholder</li>
-        <li>placeholder</li>
-        <li>placeholder</li>
-        <li>placeholder</li>
-        <li>placeholder</li>
-        <li>placeholder</li>
-        <li>placeholder</li>
-        <li>placeholder</li>
-        <li>placeholder</li>
-        <li>placeholder</li>
-        <li>placeholder</li>
+        {selectedItems.length === 0
+          ? <li></li>
+          : selectedItems.map(name => <li key={name}>{name}</li>)
+        }
       </ul>
     </>
   );
@@ -38,7 +24,7 @@ export function AiTextBar() {
         commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
         velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum
+        mollit anim id est laborum.
       </p>
     </div>
   );

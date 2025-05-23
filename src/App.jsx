@@ -1,13 +1,17 @@
 import "./App.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { AboutLink } from "./components/AboutLink";
 import { SideText } from "./components/SideText";
-import { ItemCard, CarouselButton, Randomize } from "./components/Carousel";
+import Carousel, { CarouselButton, Randomize, ItemCard } from "./components/Carousel";
 import { GenerateButton } from "./components/GenerateButton";
-import { SelectedItems, AiTextBar } from "./components/SelectedItems";
+import { SelectedItems as SelectedItemsDisplay, AiTextBar } from "./components/SelectedItems";
+import React from "react";
 
 function App() {
   const scrollRef = useRef(null);
+
+  // ← Lifted state lives here
+  const [selectedItems, setSelectedItems] = useState([]);
 
   const scroll = (direction) => {
     const container = scrollRef.current;
@@ -149,7 +153,7 @@ function App() {
           </div>
         </div>
         <div className="header-right">
-          <AboutLink text={"What is ReEarth?"} />
+          <AboutLink text="What is ReEarth?" />
         </div>
       </header>
 
@@ -158,37 +162,37 @@ function App() {
       </div>
 
       <ul className="item-container">
-        {/* left arrow */}
         <CarouselButton clickAction={() => scroll("left")} />
-
-        {/* scrollable list */}
         <li className="item-list" ref={scrollRef}>
-          {items.map((item) => (
+          {items.map(item => (
             <ItemCard
               key={item.name}
               itemsource={item.location}
               name={item.description}
               desc={item.description}
+              // pass both setter and current array
+              setSelect_item={setSelectedItems}
+              selectedItems={selectedItems}
             />
           ))}
         </li>
-        {/* right arrow */}
         <div className="button-right">
           <CarouselButton clickAction={() => scroll("right")} />
         </div>
-
-        {/* your original Randomize */}
         <Randomize />
       </ul>
+
       <div className="other-sidetext">
-        <SideText text={"what you can do:"}></SideText>
+        <SideText text="What you can do:" />
       </div>
+
       <div className="ai-container">
         <div className="left-container">
-        <GenerateButton></GenerateButton>
-        <SelectedItems></SelectedItems>
+          <GenerateButton />
+          {/* render the real list */}
+          <SelectedItemsDisplay selectedItems={selectedItems} />
         </div>
-        <AiTextBar></AiTextBar>
+        <AiTextBar />
       </div>
     </>
   );
