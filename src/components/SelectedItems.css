@@ -17,6 +17,7 @@
 }
 
 .text-bar {
+  font-family: "Rubik";
   background-color: rgb(68, 219, 106);
   /* border-style: solid;
   border-color: rgb(94, 93, 93); */
@@ -26,6 +27,8 @@
   padding-left: 10px;
   border-radius: 10px;
   max-height: 18.8em;
+  min-width: 82%;
+  overflow-y: scroll;
 }
 
 .selected-text {
@@ -44,17 +47,29 @@ ul {
 }
 
 /* 2) WebKit (Chrome, Safari, Edge) */
-ul::-webkit-scrollbar {
+
+.selected-container::-webkit-scrollbar {
   width: 8px;               /* width of the scrollbar */
   background: transparent;   /* hide the track */
 }
-
-ul::-webkit-scrollbar-track {
+.format::-webkit-scrollbar-track {
   background: transparent;   /* hide the track */
 }
 
-ul::-webkit-scrollbar-thumb {
+.selected-container::-webkit-scrollbar-thumb {
   background-color: rgba(0,0,0,0.5); /* the “stick” color */
   border-radius: 4px;                /* round it off */
   border: 2px solid transparent;     /* adds a bit of breathing room */
+}
+
+.text-bar::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.5); /* the “stick” color */
+  border-radius: 4px;                /* round it off */
+  border-width: 0px;     /* adds a bit of breathing room */
+}
+
+.format::-webkit-scrollbar {
+  width: 5px;               /* width of the scrollbar */
+  background: transparent;   /* hide the track */
+  background-color: #2da587;
 }

@@ -13,3 +13,18 @@
   background-color: rgb(77, 245, 119);
   transition: 0.5s;
 }
+
+ul::-webkit-scrollbar {
+  width: 8px;               /* width of the scrollbar */
+  background: transparent;   /* hide the track */
+}
+
+ul::-webkit-scrollbar-track {
+  background: transparent;   /* hide the track */
+}
+
+ul::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.5); /* the “stick” color */
+  border-radius: 4px;                /* round it off */
+  border: 2px solid transparent;     /* adds a bit of breathing room */
+}

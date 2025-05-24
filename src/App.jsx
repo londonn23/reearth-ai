@@ -1,5 +1,5 @@
 import "./App.css";
-import { useRef, useState } from "react";
+import { useRef, useState, useMemo } from "react";
 import { AboutLink } from "./components/AboutLink";
 import { SideText } from "./components/SideText";
 import Carousel, { CarouselButton, Randomize, ItemCard } from "./components/Carousel";
@@ -9,9 +9,16 @@ import React from "react";
 
 function App() {
   const scrollRef = useRef(null);
-
-  // ← Lifted state lives here
   const [selectedItems, setSelectedItems] = useState([]);
+  const [reply, setReply] = useState("");
+
+  // Highlighted: using useMemo to optimize promptText
+  const promptText = useMemo(() => {
+    return (
+      "List out the ways on what can i do with these items below (all of these items are used items):\n" +
+      selectedItems.join("\n")
+    );
+  }, [selectedItems]);  // <-- changed: memoize prompt generation
 
   const scroll = (direction) => {
     const container = scrollRef.current;
@@ -164,13 +171,12 @@ function App() {
       <ul className="item-container">
         <CarouselButton clickAction={() => scroll("left")} />
         <li className="item-list" ref={scrollRef}>
-          {items.map(item => (
+          {items.map((item) => (
             <ItemCard
               key={item.name}
               itemsource={item.location}
               name={item.description}
               desc={item.description}
-              // pass both setter and current array
               setSelect_item={setSelectedItems}
               selectedItems={selectedItems}
             />
@@ -188,11 +194,12 @@ function App() {
 
       <div className="ai-container">
         <div className="left-container">
-          <GenerateButton />
-          {/* render the real list */}
+          {/* Highlighted: pass setReply to GenerateButton */}
+          <GenerateButton prompt={promptText} setReply={setReply} />  
           <SelectedItemsDisplay selectedItems={selectedItems} />
         </div>
-        <AiTextBar />
+        {/* Highlighted: pass reply to AiTextBar */}
+        <AiTextBar reply={reply} />  
       </div>
     </>
   );
