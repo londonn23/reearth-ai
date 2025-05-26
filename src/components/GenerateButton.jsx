@@ -16,7 +16,7 @@ export function GenerateButton({ prompt, setReply, setLoadState, loadState }) {
       try {
         // Instantiate AI client inside callback
         const ai = new GoogleGenAI({
-          apiKey: "key here",
+          apiKey: "key",
         });
 
         const response = await ai.models.generateContent({

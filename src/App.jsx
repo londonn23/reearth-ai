@@ -12,6 +12,7 @@ function App() {
   const [selectedItems, setSelectedItems] = useState([]);
   const [reply, setReply] = useState("Awaiting Generation...");
   const [loading, setLoading] = useState(false);
+  const [random, setRandom] = useState(false);
 
   // Highlighted: using useMemo to optimize promptText
   const promptText = useMemo(() => {
@@ -179,13 +180,20 @@ function App() {
               desc={item.description}
               setSelect_item={setSelectedItems}
               selectedItems={selectedItems}
+              random={random}
             />
           ))}
         </li>
         <div className="button-right">
           <CarouselButton clickAction={() => scroll("right")} />
         </div>
-        <Randomize />
+        <Randomize 
+        setReply={setReply}
+        setLoadState={setLoading}
+        prompt={promptText}
+        setRandom={setRandom}
+        loadState={loading}
+        />
       </ul>
 
       <div className="other-sidetext">
@@ -199,7 +207,7 @@ function App() {
           <SelectedItemsDisplay selectedItems={selectedItems} />
         </div>
         {/* Highlighted: pass reply to AiTextBar */}
-        <AiTextBar reply={reply} />  
+        <AiTextBar reply={reply} />
       </div>
     </>
   );

@@ -121,3 +121,9 @@
   background-color: rgb(70, 216, 106);
   transition: 0.5s;
 }
+
+.randomize.disable {
+  pointer-events: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
