@@ -10,7 +10,8 @@ import React from "react";
 function App() {
   const scrollRef = useRef(null);
   const [selectedItems, setSelectedItems] = useState([]);
-  const [reply, setReply] = useState("");
+  const [reply, setReply] = useState("Awaiting Generation...");
+  const [loading, setLoading] = useState(false);
 
   // Highlighted: using useMemo to optimize promptText
   const promptText = useMemo(() => {
@@ -18,7 +19,7 @@ function App() {
       "List out the ways on what can i do with these items below (all of these items are used items):\n" +
       selectedItems.join("\n")
     );
-  }, [selectedItems]);  // <-- changed: memoize prompt generation
+  }, [selectedItems]);  // <-- changed: memorize prompt generation
 
   const scroll = (direction) => {
     const container = scrollRef.current;
@@ -160,7 +161,6 @@ function App() {
           </div>
         </div>
         <div className="header-right">
-          <AboutLink text="What is ReEarth?" />
         </div>
       </header>
 
@@ -195,7 +195,7 @@ function App() {
       <div className="ai-container">
         <div className="left-container">
           {/* Highlighted: pass setReply to GenerateButton */}
-          <GenerateButton prompt={promptText} setReply={setReply} />  
+          <GenerateButton prompt={promptText} setReply={setReply} loadState={loading} setLoadState={setLoading}/> 
           <SelectedItemsDisplay selectedItems={selectedItems} />
         </div>
         {/* Highlighted: pass reply to AiTextBar */}

@@ -28,3 +28,9 @@ ul::-webkit-scrollbar-thumb {
   border-radius: 4px;                /* round it off */
   border: 2px solid transparent;     /* adds a bit of breathing room */
 }
+
+.generate-button.disable {
+  pointer-events: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
