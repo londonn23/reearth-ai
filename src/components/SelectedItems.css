@@ -11,9 +11,10 @@
   overflow: scroll;
   overflow-x: hidden;
   padding-left: 10px;
-  padding-bottom: 95%;
+  padding-bottom: 90%;
   scrollbar-color: blue;
   margin-top: 0;
+  margin-bottom: 6px;
 }
 
 .text-bar {

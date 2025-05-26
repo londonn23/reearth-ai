@@ -16,14 +16,14 @@ export function GenerateButton({ prompt, setReply, setLoadState, loadState }) {
       try {
         // Instantiate AI client inside callback
         const ai = new GoogleGenAI({
-          apiKey: "key",
+          apiKey: "AIzaSyAdMqSVmk1Jv5W_qj25x92eUk8h7cHgkS0",
         });
 
         const response = await ai.models.generateContent({
           model: "gemini-2.0-flash",
           contents: prompt,
         });
-
+        
         setReply(response.text);
       } catch (err) {
         console.error(err);

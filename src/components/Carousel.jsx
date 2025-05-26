@@ -3,7 +3,7 @@ import { GoogleGenAI } from "@google/genai";
 import { useCallback, useEffect } from "react";
 
 // ItemCard no longer needs its own local selected state; it derives from parent
-export function ItemCard({ itemsource, name, desc, setSelect_item, selectedItems, random }) {
+export function ItemCard({ itemsource, name, desc, setSelect_item, selectedItems, random, setRandom }) {
   const selected = selectedItems.includes(name);
 
   const addItem = useCallback(
@@ -25,7 +25,8 @@ export function ItemCard({ itemsource, name, desc, setSelect_item, selectedItems
     if (!random) return;
     if (Math.random() < 0.5) addItem(name);
     else removeItem(name);
-  }, [random, name, addItem, removeItem]);
+    setRandom(false)
+  }, [random, name, addItem, removeItem, setRandom]);
 
   const toggleSelected = () => {
     if (selected) removeItem(name);
@@ -56,31 +57,10 @@ export function CarouselButton({ clickAction }) {
   );
 }
 
-export function Randomize({ setReply, setLoadState, prompt, setRandom, loadState }) {
+export function Randomize({setRandom, loadState }) {
   const handleClick = useCallback(async () => {
-    setLoadState(true);
     setRandom(true);
-    setReply("Generating…");
-    try {
-      // Instantiate AI client inside callback
-      const ai = new GoogleGenAI({
-        apiKey: "key",
-      });
-
-      const response = await ai.models.generateContent({
-        model: "gemini-2.0-flash",
-        contents: prompt,
-      });
-
-      setReply(response.text);
-    } catch (err) {
-      console.error(err);
-      setReply("Failed to generate. 😢");
-    } finally {
-      setLoadState(false);
-      setRandom(false);
-    }
-  }, [prompt, setReply, setLoadState, setRandom]);
+  }, [setRandom]);
 
   return (
     <li className={loadState ? "randomize disable" : "randomize"}>

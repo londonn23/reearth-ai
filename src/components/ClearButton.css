@@ -1,0 +1,21 @@
+.clear {
+  font-family: "Oswald";
+  background-color: transparent;
+  border-radius: 25px;
+  margin-top: 0;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.clear.disable {
+  pointer-events: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.clear:hover {
+  background-color: rgb(77, 245, 119);
+  transition: 0.45s;
+}

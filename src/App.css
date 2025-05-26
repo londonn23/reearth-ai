@@ -67,7 +67,7 @@ header {
   background-color: rgb(218, 217, 217);
   height: 115px;
   width: 100%;
-  overflow: hidden;
+  overflow-y: hidden;
   align-items: center;
   display: flex;
   border-style: solid;

@@ -5,6 +5,7 @@ import { SideText } from "./components/SideText";
 import Carousel, { CarouselButton, Randomize, ItemCard } from "./components/Carousel";
 import { GenerateButton } from "./components/GenerateButton";
 import { SelectedItems as SelectedItemsDisplay, AiTextBar } from "./components/SelectedItems";
+import { ClearButton } from "./components/ClearButton";
 import React from "react";
 
 function App() {
@@ -181,6 +182,7 @@ function App() {
               setSelect_item={setSelectedItems}
               selectedItems={selectedItems}
               random={random}
+              setRandom={setRandom}
             />
           ))}
         </li>
@@ -188,9 +190,6 @@ function App() {
           <CarouselButton clickAction={() => scroll("right")} />
         </div>
         <Randomize 
-        setReply={setReply}
-        setLoadState={setLoading}
-        prompt={promptText}
         setRandom={setRandom}
         loadState={loading}
         />
@@ -205,6 +204,10 @@ function App() {
           {/* Highlighted: pass setReply to GenerateButton */}
           <GenerateButton prompt={promptText} setReply={setReply} loadState={loading} setLoadState={setLoading}/> 
           <SelectedItemsDisplay selectedItems={selectedItems} />
+          <ClearButton
+          loadState={loading}
+          setList={setSelectedItems}
+          ></ClearButton>
         </div>
         {/* Highlighted: pass reply to AiTextBar */}
         <AiTextBar reply={reply} />
